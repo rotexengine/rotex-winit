@@ -20,5 +20,5 @@ pub use backend::WinitBackend;
 pub use bridge::WinitBridge;
 
 pub fn backend() -> WinitBackend {
-    WinitBackend::default()
+    WinitBackend
 }

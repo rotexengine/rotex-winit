@@ -316,10 +316,10 @@ fn with_window_mode(
             attrs.with_fullscreen(Some(Fullscreen::Borderless(event_loop.primary_monitor())))
         }
         WindowMode::ExclusiveFullscreen => {
-            if let Some(monitor) = event_loop.primary_monitor() {
-                if let Some(video_mode) = monitor.video_modes().next() {
-                    return attrs.with_fullscreen(Some(Fullscreen::Exclusive(video_mode)));
-                }
+            if let Some(monitor) = event_loop.primary_monitor()
+                && let Some(video_mode) = monitor.video_modes().next()
+            {
+                return attrs.with_fullscreen(Some(Fullscreen::Exclusive(video_mode)));
             }
             attrs.with_fullscreen(Some(Fullscreen::Borderless(event_loop.primary_monitor())))
         }
